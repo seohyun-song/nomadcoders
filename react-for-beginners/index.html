@@ -11,10 +11,20 @@
     
     <script>
         const root = document.getElementById("root");
-        const span = React.createElement("span", {id : "sexy-span", style: {color: "red"}}, "Hello , I am span.");
+        const h3 = React.createElement("h3", {
+            onMouseEnter : () => console.log('mouse enter'),
+        }, "Hello , I am span.");
+        const btn = React.createElement(
+            "button", // 버튼 생성
+            {
+            onClick:() => console.log("im clicked"), // event listner 추가
+            }, 
+            "Click me" // 내부 컨텐츠 추
+        );
+        const container = React.createElement("div", null, [h3, btn]);
 
         // React 컴포넌트 추가
-        ReactDOM.createRoot(root).render(span);
+        ReactDOM.createRoot(root).render(container);
     </script>
 </body>
 </html>
