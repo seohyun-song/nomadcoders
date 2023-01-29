@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <!-- React 내용 표시할 수 있는 DOM 컨테이너 설치 -->
     <div id="root"></div>
     <!-- React를 실행(import) -->
     <!-- 주의: 사이트를 배포할 때는 "development.js"를 "production.min.js"로 대체하세요. -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    
-    
-    <script>
-        const root = document.getElementById("root");
-        const h3 = React.createElement("h3", {
-            onMouseEnter : () => console.log('mouse enter'),
-        }, "Hello , I am span.");
-        const btn = React.createElement(
-            "button", // 버튼 생성
-            {
-            onClick:() => console.log("im clicked"), // event listner 추가
-            }, 
-            "Click me" // 내부 컨텐츠 추
-        );
-        const container = React.createElement("div", null, [h3, btn]);
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Babel를 실행(code transformer)-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        // React 컴포넌트 추가
-        ReactDOM.createRoot(root).render(container);
+    <script type="text/babel">
+      const root = document.getElementById("root");
+      const Title = () => (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello , I am span.
+        </h3>
+      );
+      const Button = () => (
+        <button onClick={() => console.log("im clicked")}>Click me</button>
+      );
+      const Container = () => (
+        <div>
+          <Title /> <Button />
+        </div>
+      );
+
+      // React 컴포넌트 추가
+      ReactDOM.createRoot(root).render(<Container />);
     </script>
-</body>
+  </body>
 </html>
