@@ -23,7 +23,8 @@
       function App() {
         const [counter, setCounter] = React.useState(0); // return arr. [data, function to modify data]
         const onClick = () => {
-          setCounter(counter + 1); // and rerendering automatically
+          // setCounter(counter + 1); // and rerendering automatically
+          setCounter((current) => current + 1);
         };
 
         return (
