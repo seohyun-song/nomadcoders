@@ -21,16 +21,45 @@
       const root = ReactDOM.createRoot(container);
 
       function App() {
-        const [counter, setCounter] = React.useState(0); // return arr. [data, function to modify data]
-        const onClick = () => {
-          // setCounter(counter + 1); // and rerendering automatically
-          setCounter((current) => current + 1);
-        };
-
+        const [amount, setAmount] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+        function onChange(event) {
+          setAmount(event.target.value); // update, rerendering
+        }
+        function reset() {
+          setAmount(0);
+        }
+        function flip() {
+          reset();
+          setFlipped((current) => !current);
+        }
         return (
           <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick={onClick}>Click me</button>
+            <h1>Super Converter</h1>
+            <div>
+              <label htmlFor="amount">Minutes</label>
+              <input
+                value={flipped ? amount * 60 : amount}
+                id="minutes"
+                placeholder="Minutes"
+                type="number"
+                onChange={onChange}
+                disabled={flipped}
+              />
+            </div>
+            <div>
+              <label htmlFor="hours">Hours</label>
+              <input
+                value={flipped ? amount : Math.round(amount / 60)}
+                id="hours"
+                placeholder="Hours"
+                type="number"
+                onChange={onChange}
+                disabled={!flipped}
+              />
+            </div>
+            <button onClick={reset}>Reset</button>
+            <button onClick={flip}>Flip</button>
           </div>
         );
       }
