@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #303030;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* convert styles */
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url("./bg.jpg") no-repeat center;
+  background-size: cover;
+}
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.converter {
+  overflow: hidden;
+  width: 500px;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.converter .title {
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.converter .select-box {
+  padding: 20px 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.converter .select-converter {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #dedede;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.converter .select-converter:focus {
+  border-bottom-color: #333;
+}
+
+.converter .value-box {
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f6fb;
+}
+
+.converter .values {
+  display: flex;
+  gap: 10px;
+}
+
+.converter .values > .input {
+  flex: 1 1 50%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.converter .values > .input input {
+  width: 100%;
+  height: 50px;
+  padding: 0 30px 0 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(122deg, #fff 60%, #eceff3);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+}
+
+.converter .values > .input input:disabled {
+  background: #e1e6ea;
+  box-shadow: none;
+}
+
+.converter .values > .input input:disabled ~ label {
+}
+
+.converter .values > .input label {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.converter .btns {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.converter button {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(122deg, #537fe7, #5c8dff 98%);
+  color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+}
